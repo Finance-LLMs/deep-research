@@ -69,8 +69,8 @@ export function getModel(): LanguageModelV1 {
   }
 
   // Priority order: Start with smaller, more stable NVIDIA models, then fallback to other providers
-  const model = nvidiaLlama8bModel ??
-                nvidiaLlama70bModel ??
+  const model = nvidiaLlama70bModel ??
+                nvidiaLlama8bModel ??
                 nvidiaNemotron70bModel ?? 
                 nvidiaLlama405bModel ??
                 deepSeekR1Model ??
