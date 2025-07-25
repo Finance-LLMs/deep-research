@@ -62,12 +62,12 @@ export function getModel(): LanguageModelV1 {
     return customModel;
   }
 
-  // Priority order: DeepSeek R1 (Fireworks) > DeepSeek R1 (NVIDIA) > Llama 405B > Nemotron 70B > Llama 70B > GPT-4o-mini
-  const model = deepSeekR1Model ?? 
-                nvidiaDeepSeekR1Model ?? 
+  // Priority order: NVIDIA models first > DeepSeek R1 (Fireworks) > GPT-4o-mini
+  const model = nvidiaDeepSeekR1Model ?? 
                 nvidiaLlama405bModel ?? 
                 nvidiaNemotron70bModel ?? 
                 nvidiaLlama70bModel ?? 
+                deepSeekR1Model ?? 
                 gpt4oMiniModel;
   
   if (!model) {
